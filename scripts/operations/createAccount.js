@@ -15,7 +15,7 @@ function createAccount() {
         
         accountExists(accountName).then(exists => {
             if(exists) {
-                console.log(chalk.bgRed.black(`Account "${accountName} already exists`))
+                console.log(chalk.bgRed.black(`Account "${accountName}" already exists`))
                 
                 inquirer.prompt([{
                     name: "tryAgain",
@@ -30,8 +30,7 @@ function createAccount() {
                 })
     
             } else {
-                addAccount(accountName)
-                return chooseOperation()
+                addAccount(accountName).then(() => chooseOperation())
             }
 
         })
