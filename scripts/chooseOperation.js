@@ -3,6 +3,7 @@ import chalk from "chalk";
 
 import { createAccount } from "./operations/createAccount.js";
 import { checkBalance } from "./operations/checkBalance.js";
+import { deposit } from "./operations/deposit.js";
 
 function chooseOperation() {
     console.log(chalk.bgBlue.black("Welcome to AG8 Bank!"))
@@ -27,11 +28,14 @@ function chooseOperation() {
                 createAccount();
                 break
             case "Check Balance":
-                checkBalance()
+                checkBalance();
+                break
+            case "Deposit":
+                deposit();
                 break
             case "Quit":
-                console.log(chalk.bgBlue.black("Thank you for using AG8 Bank!"))
-                process.exit()
+                console.log(chalk.bgBlue.black("Thank you for using AG8 Bank!"));
+                process.exit();
         }
     })
 }
