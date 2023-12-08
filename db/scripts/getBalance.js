@@ -15,13 +15,13 @@ function getBalance(accountName) {
         db.get("SELECT name, balance FROM accounts WHERE name = ?", accountName, (err, row) => {
             if(err) throw new Error(err)
             console.log(chalk.green(`${row.name}: ${row.balance}`))
+            db.close((err) => {
+                if(err) throw new Error(err)
+
+                resolve(row.balance)
+            })
         })
 
-        db.close((err) => {
-            if(err) throw new Error(err)
-
-            resolve()
-        })
     })
 }
 
